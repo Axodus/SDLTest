@@ -144,13 +144,11 @@ void delChain(int x, int y, Kvadrat **head) {
 
     if (head && onRect(x, y, *head)) {
         *head = temp->next;
-        cout << "Delete " << *temp << endl;
         delete temp;
         return;
     }
 
-    while (temp && !onRect(x, y, temp))
-    {
+    while (temp && !onRect(x, y, temp)) {
         prev = temp;
         temp = temp->next;
     }
@@ -159,7 +157,6 @@ void delChain(int x, int y, Kvadrat **head) {
 
     prev->next = temp->next;
 
-    cout << "Delete " << *temp << endl;
     delete temp;
 }
 
