@@ -30,7 +30,7 @@ void getSquare(Kvadrat *sqr) {
 
         cout << "Vnesi koordinato y: ";
         cin >> sqr->y;
-    } while ((sqr->x < 0 || sqr->x) > WINDOW_WIDTH && (sqr->y < 0 || sqr->y > WINDOW_HEIGHT));
+    } while ((sqr->x < 0 || sqr->x > WINDOW_WIDTH) && (sqr->y < 0 || sqr->y > WINDOW_HEIGHT));
 }
 
 void randomSquare(Kvadrat *sqr) {
