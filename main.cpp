@@ -139,27 +139,6 @@ bool onRect(int x, int y, Kvadrat *head) {
     return (x >= head->x && x <= head->x + head->w) && (y >= head->y && y <= head->y + head->h);
 }
 
-void delChain(int x, int y, Kvadrat **head) {
-    Kvadrat *prev, *temp = *head;
-
-    if (head && onRect(x, y, *head)) {
-        *head = temp->next;
-        delete temp;
-        return;
-    }
-
-    while (temp && !onRect(x, y, temp)) {
-        prev = temp;
-        temp = temp->next;
-    }
-
-    if (!temp) return;
-
-    prev->next = temp->next;
-
-    delete temp;
-}
-
 int main(int argc, char *argv[]) {
     
     manualInput = askInputType();
@@ -192,12 +171,6 @@ int main(int argc, char *argv[]) {
             switch (e.type) {
                 case SDL_QUIT:
                     programRunning = false;
-                    break;
-                case SDL_MOUSEBUTTONDOWN:
-                    int xmouse, ymouse;
-                    SDL_GetMouseState(&xmouse, &ymouse);
-                    delChain(xmouse, ymouse, &unorderedHead);
-                    SDL_RenderClear(renderer);
                     break;
             }
 
