@@ -135,10 +135,6 @@ void drawChain(SDL_Renderer *renderer, Kvadrat *sqr, int R, int G, int B) {
     }
 }
 
-bool onRect(int x, int y, Kvadrat *head) {
-    return (x >= head->x && x <= head->x + head->w) && (y >= head->y && y <= head->y + head->h);
-}
-
 int main(int argc, char *argv[]) {
     
     manualInput = askInputType();
